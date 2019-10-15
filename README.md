@@ -19,7 +19,11 @@ You need a centre service handling tasks: secret key store, access token keep an
 ## notice
 + The first param is share function param.
 + The second is centre control service param. Here it should be sent by `axios` after `querystring` handled. That means `content-type` is `application/x-www-form-urlencoded`.
-+ **Optional** third param. If set `'json'`, `axios` acts defaultly. `content-type` is `application/json`.
++ **Optional** third param. If set `'json'`, `axios` acts defaultly， that is `content-type` is `application/json`.
++  
++ 第一个参数是设置分享链接的参数
++ 第二个参数是发送到中控服务的参数。默认发送的 `content-type` 是 `application/x-www-form-urlencoded`.
++ 第三个**可选**参数，如果设置为 `'json'`，将使用 `axios` 的默认行为，`content-type` 是 `application/json` 。
 
 ## tips
 [Wechat official API doc](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK)

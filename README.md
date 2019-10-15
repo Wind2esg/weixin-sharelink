@@ -9,6 +9,11 @@ Best for frontend and backend isolation env in enterprises or orgnizations wecha
 
 You need a centre service handling tasks: secret key store, access token keep and renew, signature computed and so on.
 
+微信分享朋友，朋友圈，轻松便捷！  
+适用于前后分离的企业或者组织团体。  
+需后端中控服务配合。  
+中控服务需完成保存密钥，维护 token，生成签名等功能。
+
 ## tips
 [Wechat official API doc](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK)
 

@@ -3,8 +3,8 @@
   "email": "wind2esg@gmail.com",
   "license": "MIT",
   "name": "weixin-sharelink",
-  "version": "1.0.0",
-  "description": "ez access to wechat share with wechat js sdk centre service",
+  "version": "1.0.1",
+  "description": "微信分享朋友，朋友圈，轻松便捷！ez access to wechat share with wechat js sdk centre service",
   "main": "dist/index.js",
   "type": "dist/index.d.ts",
   "scripts": {},
@@ -19,7 +19,13 @@
     "js",
     "share",
     "friends",
-    "timeline"
+    "timeline",
+    "微信",
+    "微信官方",
+    "官方sdk",
+    "分享",
+    "朋友",
+    "朋友圈"
   ],
   "dependencies": {
     "@types/node": "^12.7.8",

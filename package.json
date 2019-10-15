@@ -1,0 +1,37 @@
+{
+  "author": "wind2esg",
+  "email": "wind2esg@gmail.com",
+  "license": "MIT",
+  "name": "weixin-sharelink",
+  "version": "1.0.0",
+  "description": "ez access to wechat share with wechat js sdk centre service",
+  "main": "dist/index.js",
+  "type": "dist/index.d.ts",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wind2esg/weixin-sharelink.git"
+  },
+  "keywords": [
+    "weixin",
+    "wechat",
+    "sdk",
+    "js",
+    "share",
+    "friends",
+    "timeline"
+  ],
+  "dependencies": {
+    "@types/node": "^12.7.8",
+    "axios": "^0.19.0",
+    "querystring": "^0.2.0",
+    "weixin-sdk-js": "^1.0.9"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ]
+}

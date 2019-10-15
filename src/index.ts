@@ -12,54 +12,54 @@ import axios from 'axios';
 import querystring from 'querystring';
 
 export interface WechatServiceParams{
-    url: string;
-    params: any;
+  url: string;
+  params: any;
 }
 
 interface WechatShareParams{
-    debug: boolean;
-    title: string; 
-    desc: string; 
-    link: string;
-    imgUrl: string; 
+  debug: boolean;
+  title: string; 
+  desc: string; 
+  link: string;
+  imgUrl: string; 
 }
 
 export class WeixinShareLink{
-    constructor(wechatShareParams: WechatShareParams, wechatServiceParams: WechatServiceParams){
-        axios.post(
-            wechatServiceParams.url,
-            querystring.stringify(wechatServiceParams.params)
-            ).then((response)=>{
-              console.log(wx);
-              let wxconfig = response.data;
-              wx.config({
-                debug: wechatShareParams.debug,
-                appId: wxconfig["appId"],
-                timestamp: wxconfig["timestamp"],
-                nonceStr: wxconfig["nonceStr"],
-                signature: wxconfig["signature"],
-                jsApiList: [
-                  'updateAppMessageShareData', 
-                  'updateTimelineShareData' 
-                ]
-              });
-        
-              wx.ready(()=>{
-                wx.updateTimelineShareData({
-                  title: wechatShareParams.title,
-                  link: wechatShareParams.link,
-                  imgUrl: wechatShareParams.imgUrl
-                });
-        
-                wx.updateAppMessageShareData({
-                  title: wechatShareParams.title,
-                  desc: wechatShareParams.desc,
-                  link: wechatShareParams.link,
-                  imgUrl: wechatShareParams.imgUrl
-                });
-              });
-            }
-          );
-    }
-
+  constructor(wechatShareParams: WechatShareParams, wechatServiceParams: WechatServiceParams, axiosDefault?: string){
+    let params = (axiosDefault && axiosDefault === 'json')? wechatServiceParams.params : querystring.stringify(wechatServiceParams.params);
+    axios.post(
+        wechatServiceParams.url,
+        params
+        ).then((response)=>{
+          console.log(wx);
+          let wxconfig = response.data;
+          wx.config({
+            debug: wechatShareParams.debug,
+            appId: wxconfig["appId"],
+            timestamp: wxconfig["timestamp"],
+            nonceStr: wxconfig["nonceStr"],
+            signature: wxconfig["signature"],
+            jsApiList: [
+              'updateAppMessageShareData', 
+              'updateTimelineShareData' 
+            ]
+          });
+    
+          wx.ready(()=>{
+            wx.updateTimelineShareData({
+              title: wechatShareParams.title,
+              link: wechatShareParams.link,
+              imgUrl: wechatShareParams.imgUrl
+            });
+    
+            wx.updateAppMessageShareData({
+              title: wechatShareParams.title,
+              desc: wechatShareParams.desc,
+              link: wechatShareParams.link,
+              imgUrl: wechatShareParams.imgUrl
+            });
+          });
+        }
+      );
+  }
 }

@@ -15,8 +15,9 @@ const weixin_sdk_js_1 = __importDefault(require("weixin-sdk-js"));
 const axios_1 = __importDefault(require("axios"));
 const querystring_1 = __importDefault(require("querystring"));
 class WeixinShareLink {
-    constructor(wechatShareParams, wechatServiceParams) {
-        axios_1.default.post(wechatServiceParams.url, querystring_1.default.stringify(wechatServiceParams.params)).then((response) => {
+    constructor(wechatShareParams, wechatServiceParams, axiosDefault) {
+        let params = (axiosDefault && axiosDefault === 'json') ? wechatServiceParams.params : querystring_1.default.stringify(wechatServiceParams.params);
+        axios_1.default.post(wechatServiceParams.url, params).then((response) => {
             console.log(weixin_sdk_js_1.default);
             let wxconfig = response.data;
             weixin_sdk_js_1.default.config({

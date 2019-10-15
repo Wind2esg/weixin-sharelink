@@ -18,6 +18,6 @@ interface WechatShareParams {
     imgUrl: string;
 }
 export declare class WeixinShareLink {
-    constructor(wechatShareParams: WechatShareParams, wechatServiceParams: WechatServiceParams);
+    constructor(wechatShareParams: WechatShareParams, wechatServiceParams: WechatServiceParams, axiosDefault?: string);
 }
 export {};

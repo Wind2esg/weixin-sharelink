@@ -21,7 +21,7 @@ class WeixinShareLink {
             console.log(weixin_sdk_js_1.default);
             let wxconfig = response.data;
             weixin_sdk_js_1.default.config({
-                debug: wechatShareParams.debug,
+                debug: wechatShareParams.debug ? wechatShareParams.debug : false,
                 appId: wxconfig["appId"],
                 timestamp: wxconfig["timestamp"],
                 nonceStr: wxconfig["nonceStr"],
@@ -34,13 +34,13 @@ class WeixinShareLink {
             weixin_sdk_js_1.default.ready(() => {
                 weixin_sdk_js_1.default.updateTimelineShareData({
                     title: wechatShareParams.title,
-                    link: wechatShareParams.link,
+                    link: wechatShareParams.link ? wechatShareParams.link : window.location.href,
                     imgUrl: wechatShareParams.imgUrl
                 });
                 weixin_sdk_js_1.default.updateAppMessageShareData({
                     title: wechatShareParams.title,
                     desc: wechatShareParams.desc,
-                    link: wechatShareParams.link,
+                    link: wechatShareParams.link ? wechatShareParams.link : window.location.href,
                     imgUrl: wechatShareParams.imgUrl
                 });
             });

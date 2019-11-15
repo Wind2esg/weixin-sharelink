@@ -11,10 +11,10 @@ export interface WechatServiceParams {
     params: any;
 }
 interface WechatShareParams {
-    debug: boolean;
+    debug?: boolean;
     title: string;
     desc: string;
-    link: string;
+    link?: string;
     imgUrl: string;
 }
 export declare class WeixinShareLink {

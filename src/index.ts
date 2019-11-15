@@ -17,10 +17,10 @@ export interface WechatServiceParams{
 }
 
 interface WechatShareParams{
-  debug: boolean;
+  debug?: boolean;
   title: string; 
   desc: string; 
-  link: string;
+  link?: string;
   imgUrl: string; 
 }
 
@@ -34,7 +34,7 @@ export class WeixinShareLink{
           console.log(wx);
           let wxconfig = response.data;
           wx.config({
-            debug: wechatShareParams.debug,
+            debug: wechatShareParams.debug ? wechatShareParams.debug : false,
             appId: wxconfig["appId"],
             timestamp: wxconfig["timestamp"],
             nonceStr: wxconfig["nonceStr"],
@@ -48,14 +48,14 @@ export class WeixinShareLink{
           wx.ready(()=>{
             wx.updateTimelineShareData({
               title: wechatShareParams.title,
-              link: wechatShareParams.link,
+              link: wechatShareParams.link ? wechatShareParams.link : window.location.href,
               imgUrl: wechatShareParams.imgUrl
             });
     
             wx.updateAppMessageShareData({
               title: wechatShareParams.title,
               desc: wechatShareParams.desc,
-              link: wechatShareParams.link,
+              link: wechatShareParams.link ? wechatShareParams.link : window.location.href,
               imgUrl: wechatShareParams.imgUrl
             });
           });

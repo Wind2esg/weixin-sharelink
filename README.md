@@ -32,15 +32,16 @@ You need a centre service handling tasks: secret key store, access token keep an
 install  
 `npm i -S weixin-sharelink`  
 
-for commonjs and ts  
 ```
+import { WeixinShareLink } from 'weixin-sharelink';
+
 new WeixinShareLink(
     // share function param
     {
-        debug: true,
+        //debug: true, default false
         title: "",
         desc: "",
-        link: "",
+        //link: "", default window.location.href
         imgUrl: ""
     },
     // centre control service param
